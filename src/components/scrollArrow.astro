@@ -1,0 +1,24 @@
+---
+---
+<div class="scrollArrow"></div>
+
+<style>
+  @keyframes bobbing {
+    0% { transform: translateY(10px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(10px); }
+  }
+
+  .scrollArrow {
+    position: absolute;
+    top: 55vh;
+    width: 0;
+    height: 0;
+    border-top: 30px solid white;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    animation: bobbing;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+  }
+</style>
