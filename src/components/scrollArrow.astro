@@ -1,29 +1,40 @@
 ---
 ---
-<div class="scrollArrow__wrapper">
+<div class="scrollArrow__wrapper scrollArrow__wrapper--show">
   <div class="scrollArrow__shape"></div>
 </div>
 
+<script>
+  // document.addEventListener('scroll', () => {
+  //   if (window.scrollY >= 100) {
+  //     const scrollArrow: HTMLDivElement | null = document.querySelector('div.scrollArrow__wrapper');
+  //     scrollArrow?.classList.remove('scrollArrow__wrapper--show');
+  //     scrollArrow?.classList.add('scrollArrow__wrapper--hide');
+  //     console.log('hide');
+  //   }
+  // });
+</script>
+
 <style>
-  @keyframes bobbing {
+  @keyframes scrollArrow__bobbing{
     0% { transform: translateY(10px); }
     50% { transform: translateY(-10px); }
     100% { transform: translateY(10px); }
   }
 
-  @keyframes scrollArrow__entering {
+  @keyframes scrollArrow__showing {
     from { opacity: 0; }
     to { opacity: 1; }
+  }
+
+  @keyframes scrollArrow__hiding {
+    from { opacity: 1; }
+    to { opacity: 0; }
   }
 
 	.scrollArrow__wrapper {
     position: absolute;
     bottom: calc(100px + 17.5dvh);
-		animation-name: scrollArrow__entering;
-		animation-duration: 1s;
-		animation-fill-mode: both;
-    animation-iteration-count: 1;
-    animation-delay: 2.75s;
 	}
 
   .scrollArrow__shape {
@@ -32,9 +43,25 @@
     border-top: 30px solid rgba(255, 255, 255, 0.75);
     border-left: 30px solid transparent;
     border-right: 30px solid transparent;
-    animation-name: bobbing;
+    animation-name: scrollArrow__bobbing;
     animation-duration: 3s;
     animation-iteration-count: infinite;
     animation-delay: 1.25s;
+  }
+
+  .scrollArrow__wrapper--show {
+		animation-name: scrollArrow__showing;
+		animation-duration: 1s;
+		animation-fill-mode: both;
+    animation-iteration-count: 1;
+    animation-delay: 2.75s;
+  }
+
+  .scrollArrow__wrapper--hide {
+		animation-name: scrollArrow__hiding;
+		animation-duration: 0.5s;
+		animation-fill-mode: both;
+    animation-iteration-count: 1;
+    animation-delay: 0s;
   }
 </style>
