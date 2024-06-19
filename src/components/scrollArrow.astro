@@ -1,6 +1,8 @@
 ---
 ---
-<div class="scrollArrow"></div>
+<div class="scrollArrow__wrapper">
+  <div class="scrollArrow__shape"></div>
+</div>
 
 <style>
   @keyframes bobbing {
@@ -9,16 +11,30 @@
     100% { transform: translateY(10px); }
   }
 
-  .scrollArrow {
+  @keyframes scrollArrow__entering {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+	.scrollArrow__wrapper {
     position: absolute;
-    top: 55vh;
+    bottom: 235px;
+		animation-name: scrollArrow__entering;
+		animation-duration: 1s;
+		animation-fill-mode: both;
+    animation-iteration-count: 1;
+    animation-delay: 2.75s;
+	}
+
+  .scrollArrow__shape {
     width: 0;
     height: 0;
-    border-top: 30px solid white;
+    border-top: 30px solid rgba(255, 255, 255, 0.75);
     border-left: 30px solid transparent;
     border-right: 30px solid transparent;
-    animation: bobbing;
-    animation-duration: 2s;
+    animation-name: bobbing;
+    animation-duration: 3s;
     animation-iteration-count: infinite;
+    animation-delay: 1.25s;
   }
 </style>
