@@ -1,0 +1,62 @@
+---
+---
+<section id="splash">
+  <div class="splash__background"></div>
+  <div class="splash__wrapper">
+    <h1>Jonathan Lam</h1>
+    <h3>Game and Full-Stack Web Developer</h3>
+    <a href="" target="_blank" class="splash__resume">Resumé</a>
+  </div>
+</section>
+
+<style>
+	#splash {
+		margin: 0 auto;
+		width: 100vw;
+		height: calc(100vh + 200px);
+		display: flex;
+		align-items: center;
+	}
+
+	.splash__background {
+		width: 100vw;
+		height: 100%;
+		z-index: -1;
+		position: absolute;
+		background: linear-gradient(to bottom, rgba(22, 74, 122, 0.5) 0%, rgba(22, 74, 122, 0.5) 100vh, rgba(22, 74, 122, 1)) 100%, #51b5cf url("../splash_background.jpg");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	.splash__wrapper {
+		position: relative;
+		top: -100px;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+
+		& h1 {
+			color: white;
+			font-size: 6vmax;
+			margin: 1vmax 0;
+		}
+
+		& h3 {
+			color: white;
+			font-size: 3vmax;
+		}
+	}
+
+	.splash__resume {
+		color: white;
+		font-size: clamp(1rem, 3vmax, 2.5rem);
+		border: 6px solid white;
+		padding: 0.75rem 2.5rem;
+		border-radius: 2.5rem;
+		text-decoration: none;
+	}
+</style>
