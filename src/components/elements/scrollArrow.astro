@@ -1,19 +1,13 @@
 ---
+type Props = {
+  id: string
+};
+
+const { id } = Astro.props;
 ---
-<div class="scrollArrow__wrapper scrollArrow__wrapper--show">
+<div id={id} class="scrollArrow__wrapper scrollArrow__wrapper--show">
   <div class="scrollArrow__shape"></div>
 </div>
-
-<script>
-  // document.addEventListener('scroll', () => {
-  //   if (window.scrollY >= 100) {
-  //     const scrollArrow: HTMLDivElement | null = document.querySelector('div.scrollArrow__wrapper');
-  //     scrollArrow?.classList.remove('scrollArrow__wrapper--show');
-  //     scrollArrow?.classList.add('scrollArrow__wrapper--hide');
-  //     console.log('hide');
-  //   }
-  // });
-</script>
 
 <style>
   @keyframes scrollArrow-bobbing{
@@ -33,8 +27,8 @@
   }
 
 	.scrollArrow__wrapper {
-    position: absolute;
-    bottom: calc(100px + 50dvw);
+    position: fixed;
+    bottom: 50px;
 	}
 
   .scrollArrow__shape {

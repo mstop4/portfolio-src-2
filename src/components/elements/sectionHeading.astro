@@ -21,7 +21,6 @@ const headingSlideStartY = `${headingSlideStartXVal * headingSlideAngleTan}dvw`;
   : 'heading_left'
 }`}>
   <h2
-    id={id}
     class={`heading__text ${isOnRightSide
       ? 'heading__textRight heading__textRight--appear'
       : 'heading__textLeft heading__textLeft--appear'
@@ -29,6 +28,11 @@ const headingSlideStartY = `${headingSlideStartXVal * headingSlideAngleTan}dvw`;
     {text}
   </h2>
 </div>
+
+<script>
+  import { addElementsToObserve } from "../../helpers/elementObserver";
+  addElementsToObserve(document.getElementsByClassName('heading'));
+</script>
 
 <style define:vars={{
   headingSlideAngle,
