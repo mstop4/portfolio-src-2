@@ -6,22 +6,41 @@ type Props = {
 };
 
 const { text, id, isOnRightSide } = Astro.props;
----
-<h2
-  id={id}
-  class={`heading ${isOnRightSide
-      ? 'heading__right heading__right--appear'
-      : 'heading__left heading__left--appear'}`}>
-  {text}
-</h2>
 
-<style>
+const headingSlideAngleDeg = 4;
+const headingSlideAngle = `${headingSlideAngleDeg}deg`;
+const headingSlideAngleTan = Math.tan(headingSlideAngleDeg * (Math.PI / 180));
+
+const headingSlideStartXVal = 50;
+const headingSlideStartX = `${headingSlideStartXVal}dvw`;
+const headingSlideStartY = `${headingSlideStartXVal * headingSlideAngleTan}dvw`;
+
+---
+<div id={id} class={`heading ${isOnRightSide
+  ? 'heading__right'
+  : 'heading_left'
+}`}>
+  <h2
+    id={id}
+    class={`heading__text ${isOnRightSide
+      ? 'heading__textRight heading__textRight--appear'
+      : 'heading__textLeft heading__textLeft--appear'
+    }`}>
+    {text}
+  </h2>
+</div>
+
+<style define:vars={{
+  headingSlideAngle,
+  headingSlideStartX,
+  headingSlideStartY,
+}}>
   @keyframes heading-slideInFromLeft {
     from {
       transform:
-        translateX(calc(-1 * var(--heading-slide-start-x)))
-        translateY(var(--heading-slide-start-y))
-        rotate(calc(-1 * var(--heading-slide-angle)));
+        translateX(calc(-1 * var(--headingSlideStartX)))
+        translateY(var(--headingSlideStartY))
+        rotate(calc(-1 * var(--headingSlideAngle)));
       opacity: 0;
     }
 
@@ -29,7 +48,7 @@ const { text, id, isOnRightSide } = Astro.props;
       transform:
         translateX(0) 
         translateY(0)
-        rotate(calc(-1 * var(--heading-slide-angle)));
+        rotate(calc(-1 * var(--headingSlideAngle)));
       opacity: 1;
     }
   }
@@ -37,9 +56,9 @@ const { text, id, isOnRightSide } = Astro.props;
   @keyframes heading-slideInFromRight {
     from {
       transform:
-        translateX(var(--heading-slide-start-x))
-        translateY(var(--heading-slide-start-y))
-        rotate(var(--heading-slide-angle));
+        translateX(var(--headingSlideStartX))
+        translateY(var(--headingSlideStartY))
+        rotate(var(--headingSlideAngle));
       opacity: 0;
     }
 
@@ -47,52 +66,58 @@ const { text, id, isOnRightSide } = Astro.props;
       transform:
         translateX(0) 
         translateY(0)
-        rotate(var(--heading-slide-angle));
+        rotate(var(--headingSlideAngle));
       opacity: 1;
     }
   }
 
   .heading {
+    display: flex;
     position: relative;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    background-color: white;
-    opacity: 1;
-    max-width: 25dvmax;
-    box-shadow: 1dvmax 1dvmax rgba(0, 0, 0, 0.2);
-    font-size: 4dvmax;
-    overflow: hidden;
   }
 
   .heading__left {
-    margin-left: 0;
-    margin-right: auto;
-    text-align: left;
-    left: -2vmax;
-
-    border-radius: 0 3dvmax 3dvmax 0;
-    transform: rotate(calc(-1 * var(--heading-slide-angle)));
-
-    padding: 0 0 0 3dvmax;
-  }
-
-  .heading__left--appear {
-    animation: heading-slideInFromLeft 0.5s ease-out 0s 1 forwards;
+    justify-content: left;
   }
 
   .heading__right {
-    margin-left: auto;
-    margin-right: 0;
-    text-align: right;
-    right: -2dvmax;
-
-    border-radius: 3dvmax 0 0 3dvmax;
-    transform: rotate(var(--heading-slide-angle));
-
-    padding: 0 3dvmax 0 0;
+    justify-content: right;
+  }
+  
+  .heading__text {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: max(0.5dvw, 0.25rem) max(3dvw, 1.5rem);
+    background-color: white;
+    opacity: 1;
+    max-width: var(--headingSlideStartX);
+    box-shadow: max(1dvw, 0.5rem) max(1dvw, 0.5rem) rgba(0, 0, 0, 0.2);
+    font-size: max(3.5dvw, 2rem);
+    overflow: hidden;
   }
 
-  .heading__right--appear {
+  .heading__textLeft {
+    text-align: left;
+
+    left: -1rem;
+    border-radius: 0 max(4dvw, 2rem) max(4dvw, 2rem) 0;
+    transform: rotate(calc(-1 * var(--headingSlideAngle)));
+  }
+
+  .heading__textLeft--appear {
+    animation: heading-slideInFromLeft 0.5s ease-out 0s 1 forwards;
+  }
+
+  .heading__textRight {
+    text-align: right;
+
+    right: -1rem;
+    border-radius: max(4dvw, 2rem) 0 0 max(4dvw, 2rem);
+    transform: rotate(var(--headingSlideAngle));
+  }
+
+  .heading__textRight--appear {
     animation: heading-slideInFromRight 0.5s ease-out 0s 1 forwards;
   }
 </style>

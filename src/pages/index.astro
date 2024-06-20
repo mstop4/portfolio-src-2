@@ -2,7 +2,6 @@
 import Splash from '../components/sections/splash.astro';
 import Bio from '../components/sections/bio.astro';
 import '@fontsource-variable/quicksand';
-import '../styles/global.css';
 ---
 
 <html lang="en">
@@ -20,3 +19,19 @@ import '../styles/global.css';
 		</main>
 	</body>
 </html>
+
+<style is:global>
+	html {
+		overflow-x: hidden;
+	}
+
+	body {
+		position: absolute;
+		background-color: rgba(22, 74, 122, 1);
+		font-family: "Quicksand Variable", sans-serif;
+		width: 100%;
+		margin: 0;
+		overflow-x: hidden;
+		overflow-y: auto; 
+	}
+</style>
