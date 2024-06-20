@@ -1,9 +1,9 @@
 ---
-import ScrollArrow from '../components/scrollArrow.astro';
+import ScrollArrow from '../elements/scrollArrow.astro';
 ---
 <section id="splash">
   <div class="splash__background"></div>
-  <div class="splash__wrapper">
+  <div class="splash__textWrapper">
     <h1 class="splash--enter" style="animation-delay: 0.5s;">Jonathan Lam</h1>
     <h3 class="splash--enter" style="animation-delay: 1.25s;">Game and Full-Stack Web Developer</h3>
     <a href="../downloads/resume.pdf" target="_blank" class="splash__resume splash--enter" style="animation-delay: 2s;">Resumé</a>
@@ -12,7 +12,7 @@ import ScrollArrow from '../components/scrollArrow.astro';
 </section>
 
 <style>
-	@keyframes splash__entering {
+	@keyframes splash-entering {
 		from {
 			opacity: 0;
 			transform: translateY(-20px);
@@ -45,7 +45,7 @@ import ScrollArrow from '../components/scrollArrow.astro';
 		filter: blur(5px);
 	}
 
-	.splash__wrapper {
+	.splash__textWrapper {
 		position: relative;
 		top: -100px;
 		width: 100%;
@@ -57,20 +57,20 @@ import ScrollArrow from '../components/scrollArrow.astro';
 
 		& h1 {
 			color: white;
-			font-size: 6vmax;
+			font-size: 6dvmax;
 			margin: 0;
 		}
 
 		& h3 {
 			color: white;
-			font-size: 3vmax;
-			margin: 2vmax 0 3vmax;
+			font-size: 3dvmax;
+			margin: 2dvmax 0 3dvmax;
 		}
 	}
 
 	.splash__resume {
 		color: white;
-		font-size: clamp(1rem, 3vmax, 2.5rem);
+		font-size: clamp(1rem, 3dvmax, 2.5rem);
 		border: 6px solid white;
 		padding: 0.75rem 2.5rem;
 		border-radius: 3rem;
@@ -78,7 +78,7 @@ import ScrollArrow from '../components/scrollArrow.astro';
 	}
 
 	.splash--enter {
-		animation-name: splash__entering;
+		animation-name: splash-entering;
 		animation-duration: 1s;
 		animation-fill-mode: both;
 	}

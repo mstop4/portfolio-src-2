@@ -1,0 +1,98 @@
+---
+type Props = {
+  text: string,
+  id: string,
+  isOnRightSide: boolean
+};
+
+const { text, id, isOnRightSide } = Astro.props;
+---
+<h2
+  id={id}
+  class={`heading ${isOnRightSide
+      ? 'heading__right heading__right--appear'
+      : 'heading__left heading__left--appear'}`}>
+  {text}
+</h2>
+
+<style>
+  @keyframes heading-slideInFromLeft {
+    from {
+      transform:
+        translateX(calc(-1 * var(--heading-slide-start-x)))
+        translateY(var(--heading-slide-start-y))
+        rotate(calc(-1 * var(--heading-slide-angle)));
+      opacity: 0;
+    }
+
+    to {
+      transform:
+        translateX(0) 
+        translateY(0)
+        rotate(calc(-1 * var(--heading-slide-angle)));
+      opacity: 1;
+    }
+  }
+
+  @keyframes heading-slideInFromRight {
+    from {
+      transform:
+        translateX(var(--heading-slide-start-x))
+        translateY(var(--heading-slide-start-y))
+        rotate(var(--heading-slide-angle));
+      opacity: 0;
+    }
+
+    to {
+      transform:
+        translateX(0) 
+        translateY(0)
+        rotate(var(--heading-slide-angle));
+      opacity: 1;
+    }
+  }
+
+  .heading {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: white;
+    opacity: 1;
+    max-width: 25dvmax;
+    box-shadow: 1dvmax 1dvmax rgba(0, 0, 0, 0.2);
+    font-size: 4dvmax;
+    overflow: hidden;
+  }
+
+  .heading__left {
+    margin-left: 0;
+    margin-right: auto;
+    text-align: left;
+    left: -2vmax;
+
+    border-radius: 0 3dvmax 3dvmax 0;
+    transform: rotate(calc(-1 * var(--heading-slide-angle)));
+
+    padding: 0 0 0 3dvmax;
+  }
+
+  .heading__left--appear {
+    animation: heading-slideInFromLeft 0.5s ease-out 0s 1 forwards;
+  }
+
+  .heading__right {
+    margin-left: auto;
+    margin-right: 0;
+    text-align: right;
+    right: -2dvmax;
+
+    border-radius: 3dvmax 0 0 3dvmax;
+    transform: rotate(var(--heading-slide-angle));
+
+    padding: 0 3dvmax 0 0;
+  }
+
+  .heading__right--appear {
+    animation: heading-slideInFromRight 0.5s ease-out 0s 1 forwards;
+  }
+</style>

@@ -1,3 +1,10 @@
+:root {
+  --heading-slide-angle: 4deg;
+  --heading-slide-angle-tan: 0.07;
+  --heading-slide-start-x: 25dvmax;
+  --heading-slide-start-y: calc(var(--heading-slide-start-x) * var(--heading-slide-angle-tan));
+}
+
 html {
   overflow-x: hidden;
 }
