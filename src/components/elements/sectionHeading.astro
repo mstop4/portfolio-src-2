@@ -16,11 +16,11 @@ const headingSlideStartX = `${headingSlideStartXVal}dvw`;
 const headingSlideStartY = `${headingSlideStartXVal * headingSlideAngleTan}dvw`;
 
 ---
-<div id={id} class={`heading ${isOnRightSide
+<div class={`heading ${isOnRightSide
   ? 'heading__right'
   : 'heading_left'
 }`}>
-  <h2
+  <h2 id={id}
     class={`heading__text ${isOnRightSide
       ? 'heading__textRight'
       : 'heading__textLeft'
@@ -90,9 +90,8 @@ const headingSlideStartY = `${headingSlideStartXVal * headingSlideAngleTan}dvw`;
   
   .heading__text {
     position: relative;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    padding: max(0.5dvw, 0.25rem) max(3dvw, 1.5rem);
+    margin: 1.5rem 0;
+    padding: max(0.4dvw, 0.25rem) max(3dvw, 1.5rem);
     background-color: white;
     opacity: 1;
     max-width: var(--headingSlideStartX);

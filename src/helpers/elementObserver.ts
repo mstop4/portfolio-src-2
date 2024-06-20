@@ -1,10 +1,9 @@
 const visibilityMap = new Map();
 const callbackMap = new Map();
 
-const observerCallback = entries => {
+const observerCallback = (entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-
       // See if entry has a callback attached
       if (callbackMap.has(entry.target)) {
         callbackMap.get(entry.target)();
@@ -17,6 +16,8 @@ const observerCallback = entries => {
           entry.target.classList.add(showClassName);
         }
       }
+
+      observer.unobserve(entry.target);
     }
   });
 };
