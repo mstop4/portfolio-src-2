@@ -4,12 +4,18 @@ const callbackMap = new Map();
 const observerCallback = entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      console.log(entry);
-      console.log(callbackMap);
-      console.log(callbackMap.has(entry.target));
 
+      // See if entry has a callback attached
       if (callbackMap.has(entry.target)) {
         callbackMap.get(entry.target)();
+      }
+
+      // Handle entry animations
+      const { classList, id } = entry.target;
+      for (const [classOrIdName, showClassName] of visibilityMap) {
+        if (id === classOrIdName || classList.contains(classOrIdName)) {
+          entry.target.classList.add(showClassName);
+        }
       }
     }
   });

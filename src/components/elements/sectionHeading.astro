@@ -22,8 +22,8 @@ const headingSlideStartY = `${headingSlideStartXVal * headingSlideAngleTan}dvw`;
 }`}>
   <h2
     class={`heading__text ${isOnRightSide
-      ? 'heading__textRight heading__textRight--appear'
-      : 'heading__textLeft heading__textLeft--appear'
+      ? 'heading__textRight'
+      : 'heading__textLeft'
     }`}>
     {text}
   </h2>
@@ -31,7 +31,7 @@ const headingSlideStartY = `${headingSlideStartXVal * headingSlideAngleTan}dvw`;
 
 <script>
   import { addElementsToObserve } from "../../helpers/elementObserver";
-  addElementsToObserve(document.getElementsByClassName('heading'));
+  addElementsToObserve(document.getElementsByClassName('heading__text'));
 </script>
 
 <style define:vars={{
@@ -110,7 +110,7 @@ const headingSlideStartY = `${headingSlideStartXVal * headingSlideAngleTan}dvw`;
   }
 
   .heading__textLeft--appear {
-    animation: heading-slideInFromLeft 0.5s ease-out 0s 1 forwards;
+    animation: heading-slideInFromLeft 0.5s ease-out 0s 1 both;
   }
 
   .heading__textRight {
@@ -122,6 +122,6 @@ const headingSlideStartY = `${headingSlideStartXVal * headingSlideAngleTan}dvw`;
   }
 
   .heading__textRight--appear {
-    animation: heading-slideInFromRight 0.5s ease-out 0s 1 forwards;
+    animation: heading-slideInFromRight 0.5s ease-out 0s 1 both;
   }
 </style>
