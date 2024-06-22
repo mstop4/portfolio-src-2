@@ -5,7 +5,8 @@ import ScrollArrow from '../elements/scrollArrow.astro';
   <div class="splash__background"></div>
   <div class="splash__textWrapper">
     <h1 class="splash--enter" style="animation-delay: 0.5s;">Jonathan Lam</h1>
-    <h3 class="splash--enter" style="animation-delay: 1.25s;">Game and Full-Stack Web Developer</h3>
+    <h3 class="splash--enter" style="animation-delay: 1s;">Game Developer</h3>
+		<h3 class="splash--enter" style="animation-delay: 1.5s;">Full-Stack Web Developer</h3>
     <a href="../downloads/resume.pdf" target="_blank" class="splash__resume splash--enter" style="animation-delay: 2s;">Resumé</a>
 	</div>
 	<ScrollArrow id="splash__arrow"/>
@@ -58,13 +59,13 @@ import ScrollArrow from '../elements/scrollArrow.astro';
 		& h1 {
 			color: white;
 			font-size: 6dvmax;
-			margin: 0;
+			margin: 0 0 2dvmax;
 		}
 
 		& h3 {
 			color: white;
 			font-size: 3dvmax;
-			margin: 2dvmax 0 3dvmax;
+			margin: 0;
 		}
 	}
 
@@ -73,6 +74,7 @@ import ScrollArrow from '../elements/scrollArrow.astro';
 		font-size: clamp(1rem, 3dvmax, 2.5rem);
 		border: 6px solid white;
 		padding: 0.75rem 2.5rem;
+		margin-top: 3dvmax;
 		border-radius: 3rem;
 		text-decoration: none;
 	}

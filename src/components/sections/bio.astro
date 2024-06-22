@@ -1,5 +1,6 @@
 ---
-import SectionHeading from "../elements/sectionHeading.astro";
+import SectionHeading from '../elements/sectionHeading.astro';
+import bioBulletPoints from '../../data/aboutme.json';
 ---
 <section id="bio">
   <SectionHeading
@@ -7,4 +8,32 @@ import SectionHeading from "../elements/sectionHeading.astro";
     id={'bioHeading'}
     isOnRightSide={false}
   />
+
+  <ul class="bio__text">
+    {bioBulletPoints.map((bulletPoint => 
+      <li style={`list-style-type: "${bulletPoint.bullet}";`}>
+        {bulletPoint.text}
+      </li>
+    ))}
+  </ul>
 </section>
+
+<style>
+  .bio__text {
+    padding-left: 0;
+    margin: 4dvmax auto;
+    list-style-position: outside;
+    font-size: 2dvmax;
+    width: 80%;
+    color: white;
+
+    li {
+      margin: 1.5rem 0;
+      padding-inline-start: 1ch;
+    }
+
+    ::marker {
+      text-shadow: 0.25ch 0.25ch rgba(0, 0, 0, 0.2);
+    }
+  }
+</style>
