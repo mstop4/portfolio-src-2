@@ -3,6 +3,8 @@ import SectionHeading from '../elements/sectionHeading.astro';
 import SkillChip from '../elements/skillChip.astro';
 import skills from '../../data/skills.json';
 
+const delayBetweenSkills = 0.1;
+
 ---
 <section id="skills">
   <SectionHeading
@@ -11,12 +13,19 @@ import skills from '../../data/skills.json';
     isOnRightSide={true}
   />
   <ul class="skills__list">
-    {skills.map(skill => <SkillChip
+    {skills.map((skill, i) => <SkillChip
       imageName={skill.imageName}
       label={skill.label}
+      animationDelay={delayBetweenSkills * i}
     />)}
   </ul>
 </section>
+
+<script>
+	import { addElementVisibilityTrigger, addElementsToObserve } from '../../helpers/elementObserver';
+  addElementsToObserve(document.getElementsByClassName('skillChip__container'));
+	addElementVisibilityTrigger('skillChip__container', 'skillChip__container--appear');
+</script>
 
 <style>
   .skills__list {

@@ -1,19 +1,14 @@
 ---
 type Props = {
   imageName: string,
-  label: string
+  label: string,
+  animationDelay: number
 }
 
-const { imageName, label } = Astro.props;
-
-const iconWidth = '9dvmax';
-const chipWidth = '12vmax';
-const chipStartAngle = '43deg';
-const chipEndAngle = '0deg';
-
+const { imageName, label, animationDelay } = Astro.props;
 ---
 
-<li class="skillChip__container">
+<li class="skillChip__container" style={`animation-delay: ${animationDelay}s`}>
   <img
     src={`../img/finalized/skills/${imageName}`}
     alt={label}
@@ -23,6 +18,18 @@ const chipEndAngle = '0deg';
 </li>
 
 <style>
+  @keyframes skill-entering {
+    from {
+      transform: scale(0) rotate(43deg);
+      opacity: 0;
+    }
+
+    to {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+  }
+
   .skillChip__container {
     margin: 0.75rem 1.25rem;
     max-width: 90px;
@@ -34,12 +41,15 @@ const chipEndAngle = '0deg';
     list-style-type: none;
   }
 
+  .skillChip__container--appear {
+    animation: skill-entering 0.6s var(--ease-out-back) 0s both;
+  }
+
   .skillChip__icon {
     width: 9dvmax;
     max-width: 100%;
     background-color: white;
     border-radius: 50%;
     border: #acdee8 solid 0.5rem;
-    /* box-shadow: max(1dvw, 0.5rem) max(1dvw, 0.5rem) rgba(0, 0, 0, 0.2); */
   }
 </style>

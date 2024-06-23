@@ -23,7 +23,8 @@ import '@fontsource-variable/quicksand';
 </html>
 
 <script>
-	import { addElementVisibilityTrigger, addElementCallback } from '../helpers/elementObserver';
+	import { addElementVisibilityTrigger, addElementCallback, addElementsToObserve } from '../helpers/elementObserver';
+  addElementsToObserve(document.getElementsByClassName('heading__text'));
 	addElementVisibilityTrigger('heading__textRight', 'heading__textRight--appear');
 	addElementVisibilityTrigger('heading__textLeft', 'heading__textLeft--appear');
 
@@ -35,6 +36,10 @@ import '@fontsource-variable/quicksand';
 </script>
 
 <style is:global>
+	:root {
+		--ease-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	}
+
 	html {
 		overflow-x: hidden;
 	}
