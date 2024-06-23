@@ -1,6 +1,7 @@
 ---
 import Splash from '../components/sections/splash.astro';
 import Bio from '../components/sections/bio.astro';
+import Skills from '../components/sections/skills.astro';
 import '@fontsource-variable/quicksand';
 ---
 
@@ -16,6 +17,7 @@ import '@fontsource-variable/quicksand';
 		<main id="content">
 			<Splash/>
 			<Bio/>
+			<Skills/>
 		</main>
 	</body>
 </html>
@@ -45,5 +47,10 @@ import '@fontsource-variable/quicksand';
 		margin: 0;
 		overflow-x: hidden;
 		overflow-y: auto; 
+	}
+
+	::selection {
+		color: black;
+		background: LightSkyBlue;
 	}
 </style>

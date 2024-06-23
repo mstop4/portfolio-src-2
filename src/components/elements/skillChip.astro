@@ -1,0 +1,45 @@
+---
+type Props = {
+  imageName: string,
+  label: string
+}
+
+const { imageName, label } = Astro.props;
+
+const iconWidth = '9dvmax';
+const chipWidth = '12vmax';
+const chipStartAngle = '43deg';
+const chipEndAngle = '0deg';
+
+---
+
+<li class="skillChip__container">
+  <img
+    src={`../img/finalized/skills/${imageName}`}
+    alt={label}
+    class="skillChip__icon"
+  >
+  <p>{label}</p>
+</li>
+
+<style>
+  .skillChip__container {
+    margin: 0.75rem 1.25rem;
+    max-width: 90px;
+    color: white;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+  }
+
+  .skillChip__icon {
+    width: 9dvmax;
+    max-width: 100%;
+    background-color: white;
+    border-radius: 50%;
+    border: #acdee8 solid 0.5rem;
+    /* box-shadow: max(1dvw, 0.5rem) max(1dvw, 0.5rem) rgba(0, 0, 0, 0.2); */
+  }
+</style>

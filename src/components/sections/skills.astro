@@ -1,0 +1,30 @@
+---
+import SectionHeading from '../elements/sectionHeading.astro';
+import SkillChip from '../elements/skillChip.astro';
+import skills from '../../data/skills.json';
+
+---
+<section id="skills">
+  <SectionHeading
+    text={'Tech Skills'}
+    id={'skillsHeading'}
+    isOnRightSide={true}
+  />
+  <ul class="skills__list">
+    {skills.map(skill => <SkillChip
+      imageName={skill.imageName}
+      label={skill.label}
+    />)}
+  </ul>
+</section>
+
+<style>
+  .skills__list {
+    padding-left: 0;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+</style>
