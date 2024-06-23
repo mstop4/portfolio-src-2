@@ -1,6 +1,8 @@
 ---
 import SectionHeading from '../elements/sectionHeading.astro';
 import bioBulletPoints from '../../data/aboutme.json';
+
+const delayBetweenPoints = 0.1;
 ---
 <section id="bio">
   <SectionHeading
@@ -9,17 +11,49 @@ import bioBulletPoints from '../../data/aboutme.json';
     isOnRightSide={false}
   />
 
-  <ul class="bio__text">
-    {bioBulletPoints.map((bulletPoint => 
-      <li style={`list-style-type: "${bulletPoint.bullet}";`}>
+  <ul id="bio__list">
+    {bioBulletPoints.map(((bulletPoint, i) => 
+      <li
+        class="bio__text"
+        style={`
+          list-style-type: "${bulletPoint.bullet}";
+          animation-delay: ${delayBetweenPoints * i}s;
+        `}>
         {bulletPoint.text}
       </li>
     ))}
   </ul>
 </section>
 
+<script>
+	import { addElementCallback, addElementsToObserve } from '../../helpers/elementObserver';
+  const bioList = document.getElementById('bio__list');
+
+  addElementsToObserve(bioList);
+  addElementCallback(bioList, () => {
+		const bulletPoints = document.getElementsByClassName('bio__text');
+    for (const bulletPoint of bulletPoints) {
+      bulletPoint.classList.add('bio__text--appear');
+    }
+	});
+</script>
+
 <style>
-  .bio__text {
+  @keyframes bio-slideIn {
+    from {
+      transform:
+        translateX(10vmax);
+      opacity: 0;
+    }
+
+    to {
+      transform:
+        translateX(0);
+      opacity: 1;
+    }
+  }
+
+  #bio__list {
     padding-left: 0;
     margin: 4dvmax auto;
     list-style-position: outside;
@@ -27,13 +61,17 @@ import bioBulletPoints from '../../data/aboutme.json';
     width: 80%;
     color: white;
 
-    li {
-      margin: 1.5rem 0;
-      padding-inline-start: 1ch;
-    }
-
     ::marker {
       text-shadow: 0.25ch 0.25ch rgba(0, 0, 0, 0.2);
     }
+  }
+
+  .bio__text {
+    margin: 1.5rem 0;
+    padding-inline-start: 1ch;
+  }
+
+  .bio__text--appear {
+    animation: bio-slideIn 0.5s ease-out 0s 1 both;
   }
 </style>

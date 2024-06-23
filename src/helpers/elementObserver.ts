@@ -26,10 +26,23 @@ const observer = new IntersectionObserver(observerCallback);
 /*
  * Adds element(s) to observe
  */
-export const addElementsToObserve = (elements: HTMLCollectionOf<Element>) => {
-  for (const element of elements) {
-    observer.observe(element);
+export const addElementsToObserve = (elements: HTMLCollectionOf<Element> | Element | null) => {
+  // Is elements null?
+  if (elements == null) {
+    console.warn('addElementsToObserve: element is null');
+    return;
   }
+
+  // Is elements a colelction of elements?
+  if (elements instanceof HTMLCollection) {
+    for (const element of elements) {
+      observer.observe(element);
+    }
+    return;
+  }
+
+  // elements is a single element
+  observer.observe(elements);
 }
 
 /*

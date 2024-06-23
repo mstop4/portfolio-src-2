@@ -12,7 +12,7 @@ const delayBetweenSkills = 0.1;
     id={'skillsHeading'}
     isOnRightSide={true}
   />
-  <ul class="skills__list">
+  <ul id="skills__list">
     {skills.map((skill, i) => <SkillChip
       imageName={skill.imageName}
       label={skill.label}
@@ -22,13 +22,20 @@ const delayBetweenSkills = 0.1;
 </section>
 
 <script>
-	import { addElementVisibilityTrigger, addElementsToObserve } from '../../helpers/elementObserver';
-  addElementsToObserve(document.getElementsByClassName('skillChip__container'));
-	addElementVisibilityTrigger('skillChip__container', 'skillChip__container--appear');
+	import { addElementsToObserve, addElementCallback } from '../../helpers/elementObserver';
+  const skillsList = document.getElementById('skills__list');
+
+  addElementsToObserve(skillsList);
+	addElementCallback(skillsList, () => {
+		const skillChips = document.getElementsByClassName('skillChip__container');
+    for (const skillChip of skillChips) {
+      skillChip.classList.add('skillChip__container--appear');
+    }
+	});
 </script>
 
 <style>
-  .skills__list {
+  #skills__list {
     padding-left: 0;
     width: 90%;
     display: flex;
