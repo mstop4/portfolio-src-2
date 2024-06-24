@@ -14,7 +14,7 @@ const { imageName, label, animationDelay } = Astro.props;
     alt={label}
     class="skillChip__icon"
   >
-  <p>{label}</p>
+  <p class="skillChip__label">{label}</p>
 </li>
 
 <style>
@@ -32,7 +32,7 @@ const { imageName, label, animationDelay } = Astro.props;
 
   .skillChip__container {
     margin: 0.75rem 1.25rem;
-    max-width: 90px;
+    width: 90px;
     color: white;
     display: flex;
     text-align: center;
@@ -46,10 +46,14 @@ const { imageName, label, animationDelay } = Astro.props;
   }
 
   .skillChip__icon {
-    width: 9dvmax;
-    max-width: 100%;
+    width: 90px;
     background-color: white;
     border-radius: 50%;
     border: #acdee8 solid 0.5rem;
+  }
+
+  .skillChip__label {
+    font-size: 1.5rem;
+    margin: 1rem 0 0;
   }
 </style>

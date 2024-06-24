@@ -1,7 +1,7 @@
 const visibilityMap = new Map();
 const callbackMap = new Map();
 
-const observerCallback = (entries, observer) => {
+const observerCallback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       // See if entry has a callback attached
@@ -26,7 +26,7 @@ const observer = new IntersectionObserver(observerCallback);
 /*
  * Adds element(s) to observe
  */
-export const addElementsToObserve = (elements: HTMLCollectionOf<Element> | Element | null) => {
+export const addElementsToObserve = (elements: HTMLCollection | Element | null) => {
   // Is elements null?
   if (elements == null) {
     console.warn('addElementsToObserve: element is null');
