@@ -1,0 +1,103 @@
+[
+  {
+    "title": "Match 3 Garden",
+    "previewStatic": "match-3-garden.jpg",
+    "previewAnim": "vid/preview/match-3-garden.mp4",
+    "fullAnim": "vid/match-3-garden.mp4",
+    "description": "A free-to-play narrative match-3 puzzle game on Facebook I worked on while at Softgames.<br/><br/>Features a story about a young woman who is trying to save and restore her dilapidated childhood home. Players complete levels in order to restore and decorate a large garden and mansion. Other features include daily challenge and missions, and a weekly event where player compete on a leaderboard to earn rewards.",
+    "stack": [ "Phaser CE", "Facebook Instant Games SDK", "DeltaDNA", "Sentry", "Node.js", "Gulp" ],
+    "sourceUrls": [],
+    "demoUrls": [
+      { "url": "https://fb.gg/play/sg_mtgarden", "text": "Play" }
+    ]
+  },
+
+  {
+    "title": "Cookie Land",
+    "previewStatic": "cookie-land.jpg",
+    "previewAnim": "vid/preview/cookie-land.mp4",
+    "fullAnim": "vid/cookie-land.mp4",
+    "description": "A free-to-play match-3 puzzle game on Facebook I worked on while at Softgames.<br/><br/>Players complete levels and compete with friends to see who can reach the highest level, with new levels updated every week. Other features include daily challenge, a weekly Treasure Hunt events, and seasonal events where player can earn rewards.",
+    "stack": [ "Phaser CE", "Facebook Instant Games SDK", "DeltaDNA", "Sentry", "Node.js", "Gulp" ],
+    "sourceUrls": [],
+    "demoUrls": [
+      { "url": "https://fb.gg/play/cookie_crush_two", "text": "Play" }
+    ]
+  },
+
+  {
+    "title": "Minecraft 3D Path Map",
+    "previewStatic": "mc-3d-path-map.jpg",
+    "previewAnim": "vid/preview/mc-3d-path-map.mp4",
+    "fullAnim": "vid/mc-3d-path-map.mp4",
+    "description": "A 3D map app visualizing the network of paths in the Nether of my survival single-player Minecraft world.<br/><br/>Features different path colour schemes for different categorizations and colourblindness. Under the hood, optimizations have been implemented to make sure the map renders hundreds of data points smoothly on different devices.",
+    "stack": [ "Typescript", "Three.js", "Vite" ],
+    "sourceUrls": [
+      { "url": "https://github.com/mstop4/mc-3d-path-map", "text": "Source" }
+    ],
+    "demoUrls": [
+      { "url": "https://mstop4.github.io/mc-3d-path-map/", "text": "Demo" }
+    ]
+  },
+
+  {
+    "title": "VGM Obscura Dashboard",
+    "previewStatic": "vgm-obscura-dashboard.jpg",
+    "previewAnim": "vid/preview/vgm-obscura-dashboard.mp4",
+    "fullAnim": "vid/vgm-obscura-dashboard.mp4",
+    "description": "A simple fullstack app that automatically summarizes and calculates custom metrics for my YouTube channel, VGM Obscura.<br/><br/>Previously, I crunched the data by manually copying the values off of YouTube Studio and putting them into a spreadsheet. This eventually got tedious, so I figured I could make something that automatically pulls the data from YouTube\"s APIs directly, crunch the numbers, and display it nicely.",
+    "stack": [ "Next.js 13", "TypeScript", "MUI", "Chart.js", "Vercel", "Express.js", "Redis", "YouTube Data & Analytics APIs", "Heroku" ],
+    "sourceUrls": [
+      { "url": "https://github.com/mstop4/vgm-obscura-tracker", "text": "Source" }
+    ],
+    "demoUrls": [
+      { "url": "https://vgm-obscura-tracker.vercel.app/", "text": "Demo" }
+    ]
+  },
+
+  {
+    "title": "GIFcentration 2",
+    "previewStatic": "gifcentration2.jpg",
+    "previewAnim": "vid/preview/gifcentration2.mp4",
+    "fullAnim": "vid/gifcentration2.mp4",
+    "description": "A card pairs-matching game powered by Next.js, Giphy, and Vercel.<br/><br/>Enter a topic and GIFcentration will search for relevant GIFs and set up a game of Concentration for you to play. Can\"t think of a topic? Try one of the Popular Searches!<br/><br/>Serves as the successor and replacement to the original GIFcentration Client and Server apps.",
+    "stack": [ "Next.js", "Typescript", "MongoDB", "Mongoose", "Giphy JS SDK", "Redis", "Zustand", "Vercel" ],
+    "sourceUrls": [
+      { "url": "https://github.com/mstop4/gifcentration-2", "text": "Source" }
+    ],
+    "demoUrls": [
+      { "url": "https://gifcentration-2.vercel.app/", "text": "Play" }
+    ]
+  },
+
+  {
+    "title": "Sync Timer",
+    "previewStatic": "sync-timer.jpg",
+    "previewAnim": "vid/preview/sync-timer.mp4",
+    "fullAnim": "vid/sync-timer.mp4",
+    "description": "An online stopwatch microservice where multiple groups of users or parties can each create and observe a common timer hosted on an express server on multiple devices via web sockets.<br/><br/>During my time as a teaching assistant at the University of Toronto, I had students needing to time the length of their presentations. Since the presenters and the audience (myself included), were facing in opposite directions, a timer on a single screen did not suffice. That gave me the idea to build Sync Timer, which solves that problem by running timers on a central server, which is broadcasted to multiple devices for different viewers.<br/><br/>It caught the attention of lead instructor of my class and he loved the idea.",
+    "stack": ["Node.js", "Express", "Socket.io", "Pug", "Sass", "Mocha", "Chai", "Puppeteer", "jsdom"],
+    "sourceUrls": [
+      { "url": "https://github.com/mstop4/sync-timer", "text": "Source" }
+    ],
+    "demoUrls": [
+      { "url": "https://sync-timer.herokuapp.com", "text": "Demo" }
+    ]
+  },
+
+  {
+    "title": "Worker #11812",
+    "previewStatic": "worker-11812.jpg",
+    "previewAnim": "vid/preview/worker-11812.mp4",
+    "fullAnim": "vid/worker-11812.mp4",
+    "description": "A point-and-drag game inspired by the 'paternoster machine' (better known as the 'clock scene') from the 1927 film <em>Metropolis</em> by Fritz Lang.<br/><br/> The game was first created with Phaser 3 as an exercise in learning the framework, then it was ported to GameMaker Studio 2 for native builds (Windows, macOS, Linux) after deciding that packing the web app with Electron made it too large.",
+    "stack": ["Phaser 3", "Node.js", "Babel", "Webpack", "GameMaker Studio 2"],
+    "sourceUrls": [
+      { "url": "https://github.com/mstop4/worker-11812-phaser", "text": "Web" },
+      { "url": "https://github.com/mstop4/worker-11812-gms", "text": "Native" }
+    ],
+    "demoUrls": [
+      { "url": "https://quadolorgames.itch.io/worker-11812", "text": "Play" }
+    ]
+  }
+]

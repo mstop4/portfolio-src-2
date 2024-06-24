@@ -1,0 +1,36 @@
+---
+const { title, previewImageName } = Astro.props;
+---
+<li class="projectCard__container">
+  <img
+    src={`../img/finalized/${previewImageName}`}
+    alt={title}
+    class="projectcard__preview"
+  >
+  <p class="projectCard__title">{title}</p>
+</li>
+
+<style>
+  .projectCard__container {
+    width: 400px;
+    height: 300px;
+    margin: 1rem;
+    border-radius: 20px;
+    padding: 15px;
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    list-style-type: none;
+  }
+
+  .projectcard__preview {
+    width: 100%;
+    border: 4px blue solid;
+    border-radius: 4px;
+  }
+
+  .projectCard__title {
+    margin: 0;
+  }
+</style>

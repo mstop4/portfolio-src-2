@@ -1,0 +1,32 @@
+---
+import SectionHeading from "../elements/sectionHeading.astro";
+import ProjectCard from "../elements/projectCard.astro";
+import projects from '../../data/projects.json';
+
+const delay = 0.1;
+---
+<SectionHeading
+  text={'Projects'}
+  id={'projectsHeading'}
+  isOnRightSide={false}
+/>
+
+<ul id="projects__list">
+  {projects.map((project, i) => <ProjectCard
+    title={project.title}
+    previewImageName={project.previewStatic}
+    animationDelay={delay * i}
+  />)}
+</ul>
+
+<style>
+  #projects__list {
+    margin: 4dvmax auto;
+    padding-left: 0;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+</style>
